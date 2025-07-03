@@ -16,7 +16,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            padding: 20px;
+            padding: 10px;
             color: #333;
         }
 
@@ -32,33 +32,33 @@
 
         .header {
             background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
-            padding: 30px;
+            padding: 20px;
             text-align: center;
             color: white;
         }
 
         .header h1 {
-            font-size: 2.5em;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
             margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .header p {
-            font-size: 1.2em;
+            font-size: clamp(0.9rem, 2.5vw, 1.2rem);
             opacity: 0.9;
         }
 
         .main-content {
-            padding: 30px;
+            padding: 15px;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
+            grid-template-columns: 1fr;
+            gap: 20px;
         }
 
         .card {
             background: white;
             border-radius: 15px;
-            padding: 25px;
+            padding: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
@@ -71,20 +71,21 @@
         .card h2 {
             color: #2c3e50;
             margin-bottom: 20px;
-            font-size: 1.5em;
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
             border-bottom: 3px solid #3498db;
             padding-bottom: 10px;
         }
 
         .input-group {
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .input-group label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
             font-weight: 600;
             color: #34495e;
+            font-size: clamp(0.9rem, 2vw, 1rem);
         }
 
         .input-group input, .input-group select {
@@ -92,7 +93,7 @@
             padding: 12px;
             border: 2px solid #ecf0f1;
             border-radius: 8px;
-            font-size: 16px;
+            font-size: clamp(14px, 2.5vw, 16px);
             transition: border-color 0.3s ease;
         }
 
@@ -104,15 +105,16 @@
         .btn {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 15px 30px;
+            padding: 12px 20px;
             border: none;
             border-radius: 8px;
-            font-size: 16px;
+            font-size: clamp(14px, 2.5vw, 16px);
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
             width: 100%;
             margin-top: 10px;
+            min-height: 48px;
         }
 
         .btn:hover {
@@ -156,14 +158,14 @@
         .prediction-result {
             background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
             border-radius: 15px;
-            padding: 25px;
+            padding: 20px;
             margin-top: 20px;
             text-align: center;
             border: 2px solid #3498db;
         }
 
         .ph-value {
-            font-size: 3em;
+            font-size: clamp(2rem, 8vw, 3rem);
             font-weight: bold;
             margin: 15px 0;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
@@ -184,6 +186,8 @@
             z-index: 1000;
             transform: translateX(400px);
             transition: transform 0.3s ease;
+            max-width: calc(100vw - 40px);
+            word-wrap: break-word;
         }
 
         .notification.show {
@@ -204,17 +208,13 @@
 
         .chart-container {
             position: relative;
-            height: 300px;
+            height: 250px;
             margin-top: 20px;
-        }
-
-        .full-width {
-            grid-column: 1 / -1;
         }
 
         .sensor-data {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
             gap: 15px;
             margin-top: 20px;
         }
@@ -225,10 +225,14 @@
             padding: 15px;
             border-radius: 10px;
             text-align: center;
+            min-height: 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .sensor-value {
-            font-size: 1.5em;
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
             font-weight: bold;
             margin-top: 5px;
         }
@@ -243,17 +247,25 @@
         .random-forest-info h3 {
             color: #2c3e50;
             margin-bottom: 15px;
+            font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+        }
+
+        .random-forest-info p {
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            margin-bottom: 10px;
         }
 
         .tree-container {
             display: flex;
-            justify-content: space-around;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
             margin-top: 15px;
         }
 
         .tree {
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             background: #27ae60;
             border-radius: 50%;
             display: flex;
@@ -262,6 +274,7 @@
             color: white;
             font-weight: bold;
             animation: grow 2s infinite alternate;
+            font-size: 12px;
         }
 
         @keyframes grow {
@@ -269,13 +282,178 @@
             100% { transform: scale(1.1); }
         }
 
-        @media (max-width: 768px) {
+        .control-panel {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .control-panel > * {
+            margin: 5px 0;
+        }
+
+        /* Responsive breakpoints */
+        @media (min-width: 576px) {
+            body {
+                padding: 15px;
+            }
+            
             .main-content {
-                grid-template-columns: 1fr;
+                padding: 20px;
+            }
+            
+            .card {
+                padding: 25px;
+            }
+            
+            .chart-container {
+                height: 300px;
+            }
+            
+            .sensor-data {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+
+        @media (min-width: 768px) {
+            body {
+                padding: 20px;
+            }
+            
+            .main-content {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 25px;
+                gap: 25px;
+            }
+            
+            .full-width {
+                grid-column: 1 / -1;
+            }
+            
+            .header {
+                padding: 30px;
+            }
+            
+            .sensor-data {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            }
+            
+            .tree {
+                width: 60px;
+                height: 60px;
+                font-size: 14px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .main-content {
+                padding: 30px;
+                gap: 30px;
+            }
+            
+            .sensor-data {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+            
+            .chart-container {
+                height: 350px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+
+        /* Mobile-first button improvements */
+        @media (max-width: 767px) {
+            .btn {
+                padding: 15px 20px;
+                margin: 8px 0;
+            }
+            
+            .notification {
+                top: 10px;
+                right: 10px;
+                left: 10px;
+                transform: translateY(-100px);
+                max-width: none;
+            }
+            
+            .notification.show {
+                transform: translateY(0);
+            }
+            
+            .tree-container {
+                gap: 5px;
+            }
+            
+            .tree {
+                width: 40px;
+                height: 40px;
+                font-size: 10px;
+            }
+        }
+
+        /* Very small screens */
+        @media (max-width: 480px) {
+            .header {
+                padding: 15px;
+            }
+            
+            .main-content {
+                padding: 10px;
+                gap: 15px;
+            }
+            
+            .card {
+                padding: 15px;
+            }
+            
+            .input-group {
+                margin-bottom: 12px;
+            }
+            
+            .chart-container {
+                height: 200px;
+            }
+            
+            .sensor-data {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+            
+            .sensor-item {
+                padding: 10px;
+                min-height: 70px;
+            }
+        }
+
+        /* Landscape orientation on mobile */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .header {
+                padding: 10px;
             }
             
             .header h1 {
-                font-size: 2em;
+                font-size: 1.5rem;
+                margin-bottom: 5px;
+            }
+            
+            .header p {
+                font-size: 0.9rem;
+            }
+            
+            .main-content {
+                padding: 10px;
+            }
+            
+            .card {
+                padding: 15px;
+            }
+            
+            .chart-container {
+                height: 180px;
             }
         }
     </style>
@@ -319,15 +497,17 @@
 
             <div class="card">
                 <h2>📡 ESP32 Control Panel</h2>
-                <div style="text-align: center;">
-                    <div class="status-indicator status-off" id="esp32Status"></div>
-                    <span id="esp32StatusText">ESP32 Disconnected</span>
+                <div class="control-panel">
+                    <div>
+                        <div class="status-indicator status-off" id="esp32Status"></div>
+                        <span id="esp32StatusText">ESP32 Disconnected</span>
+                    </div>
+                    <button class="btn btn-esp32" id="esp32Toggle" onclick="toggleESP32()">
+                        🔌 Connect ESP32
+                    </button>
+                    <button class="btn" onclick="startSimulation()">🎯 Start Real-time Simulation</button>
+                    <button class="btn" onclick="stopSimulation()">⏹️ Stop Simulation</button>
                 </div>
-                <button class="btn btn-esp32" id="esp32Toggle" onclick="toggleESP32()">
-                    🔌 Connect ESP32
-                </button>
-                <button class="btn" onclick="startSimulation()">🎯 Start Real-time Simulation</button>
-                <button class="btn" onclick="stopSimulation()">⏹️ Stop Simulation</button>
                 
                 <div class="sensor-data" id="sensorData">
                     <div class="sensor-item">
@@ -605,7 +785,9 @@
             setTimeout(() => {
                 notification.classList.remove('show');
                 setTimeout(() => {
-                    document.body.removeChild(notification);
+                    if (document.body.contains(notification)) {
+                        document.body.removeChild(notification);
+                    }
                 }, 300);
             }, 3000);
         }
@@ -673,7 +855,7 @@
                     basePhosphorus = 15 + Math.random() * 30;
                     basePotassium = 30 + Math.random() * 50;
                 } else if (Math.random() < 0.6) { // 30% chance for nutrient excess
-                    baseNitrogen = 180 + Math.random() * 70;
+                    baseNitrogen =180 + Math.random() * 70;
                     basePhosphorus = 150 + Math.random() * 50;
                     basePotassium = 220 + Math.random() * 80;
                 } else { // 40% chance for moderate but still problematic levels
