@@ -15,7 +15,7 @@
 ---
 
 ## 🎯 **PROJECT OVERVIEW**
-
+![Screenshot](./Gambar1.png)
 **Smart Soil pH Monitoring System** adalah solusi revolusioner untuk **pertanian presisi** yang menggunakan **algoritma Random Forest** dengan akurasi **94.7%** untuk prediksi pH tanah secara real-time. Sistem ini mengintegrasikan **ESP32 IoT**, **machine learning**, dan **web technologies** dalam satu platform yang powerful dan user-friendly.
 
 ### 🏆 **Key Achievements**
